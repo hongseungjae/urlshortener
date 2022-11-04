@@ -18,9 +18,9 @@ public class indexController {
     static Base62 base62 = Base62.createInstance();
 
 
-    @RequestMapping(value = "/hello", method = GET)
+    @RequestMapping(value = "/hello/url", method = GET)
     public String main(HttpServletRequest request, Model model) {
-
+        System.out.println("index");
         return "hello";
     }
 }

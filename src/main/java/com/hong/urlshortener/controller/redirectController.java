@@ -28,7 +28,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @Controller
 public class redirectController {
-    @RequestMapping(value = "/**", method = GET)
+    @RequestMapping(value = "/{*}", method = GET)
     public ResponseEntity<?> urlRedirect(HttpServletRequest request, Model model) {
 
         System.out.println("urlRedirect 시작");
@@ -72,14 +72,12 @@ public class redirectController {
 
 
         }
+
+
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(URI.create("/"));
-        new ResponseEntity<>(headers, HttpStatus.NOT_FOUND);
+        headers.setLocation(URI.create("/hello/url"));
 
         return new ResponseEntity<>(headers, HttpStatus.MOVED_PERMANENTLY);
     }
-
-
-
 
 }
