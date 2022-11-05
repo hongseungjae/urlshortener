@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @Controller
-public class indexController {
+public class IndexController {
 
     static ArrayList<String> arr = new ArrayList<>();
     static Base62 base62 = Base62.createInstance();

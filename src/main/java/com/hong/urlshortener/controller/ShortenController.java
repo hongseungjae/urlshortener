@@ -1,5 +1,7 @@
 package com.hong.urlshortener.controller;
 
+import com.hong.urlshortener.service.EncodeUrl;
+import com.hong.urlshortener.service.ParseUrl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,30 +12,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-import static com.hong.urlshortener.controller.indexController.arr;
-import static com.hong.urlshortener.controller.indexController.base62;
+import static com.hong.urlshortener.controller.IndexController.arr;
+import static com.hong.urlshortener.controller.IndexController.base62;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @Controller
-public class shortenController {
+public class ShortenController {
     @RequestMapping(value = "/urlConvert", method = POST)
     public ModelAndView urlConvert(HttpServletRequest request, HttpServletResponse response, Model model) throws ServletException, IOException {
-        System.out.println("urlConvert 시작");
-        String userUrl = request.getParameter("url");
-        System.out.println("userUrl = " + userUrl);
+
+        ParseUrl parseUrl = new ParseUrl(request);
+        parseUrl.setUrl(request.getParameter("url"));
 
 
-        String index = arr.size()+"";
-        byte[] Encoded = base62.encode(index.getBytes());
-        String indexEncoded = new String(Encoded);
-        System.out.println("인코딩된 index = " + indexEncoded);
+        EncodeUrl encodeUrl = new EncodeUrl();
+        String indexEncoded = encodeUrl.urlToShortenUrl(parseUrl.getUrl(),base62,arr);
 
-        System.out.println(request.getRequestURL().toString().replace(request.getRequestURI(),"/"+indexEncoded));
-        arr.add(userUrl);
+        arr.add(parseUrl.getUrl());
 
         ModelAndView mv = new ModelAndView();
 
-        mv.addObject("url",request.getRequestURL().toString().replace(request.getRequestURI(),"/"+indexEncoded));
+        mv.addObject("url",encodeUrl.createUrl(request,indexEncoded));
         mv.setViewName("short");
 
         return mv;

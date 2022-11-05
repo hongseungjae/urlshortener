@@ -1,0 +1,14 @@
+package com.hong.urlshortener.service;
+
+import com.hong.urlshortener.utill.Base62;
+
+public class DecodeUrl {
+
+    public String urlToIndex(String originUrl, Base62 base62){
+
+        byte[] decoded = base62.decode(originUrl.getBytes());
+        String indexDecoded =decoded+"";
+
+        return indexDecoded;
+    }
+}
