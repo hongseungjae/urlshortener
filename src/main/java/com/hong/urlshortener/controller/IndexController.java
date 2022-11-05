@@ -1,5 +1,7 @@
 package com.hong.urlshortener.controller;
 
+import com.hong.urlshortener.repositories.IStorage;
+import com.hong.urlshortener.repositories.UrlStorage;
 import com.hong.urlshortener.utill.Base62;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,8 @@ public class IndexController {
 
     static ArrayList<String> arr = new ArrayList<>();
     static Base62 base62 = Base62.createInstance();
+
+    static IStorage iStorage = new UrlStorage();
 
 
     @RequestMapping(value = "/hello/url", method = GET)
