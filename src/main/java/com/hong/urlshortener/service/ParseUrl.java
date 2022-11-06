@@ -20,7 +20,13 @@ public class ParseUrl {
         url = request.getRequestURI();
     }
     public void pathSplit() {
-        url = url.substring(1);
+        url = url.substring(1,url.length()-1);
+    }
+
+    public void pathCountSplit() {
+        String[] strarr = url.split("/");
+        String str = strarr[1];
+        url = str;
     }
 
 

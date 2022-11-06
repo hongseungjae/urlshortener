@@ -1,12 +1,7 @@
 package com.hong.urlshortener.utill;
-
 import java.io.ByteArrayOutputStream;
 
-/**
- * A Base62 encoder/decoder.
- *
- * @author Sebastian Ruhleder, sebastian@seruco.io
- */
+
 public class Base62 {
 
     private static final int STANDARD_BASE = 256;

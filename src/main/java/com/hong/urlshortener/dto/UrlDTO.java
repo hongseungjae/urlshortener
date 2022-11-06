@@ -5,11 +5,17 @@ import lombok.Setter;
 
 @Getter @Setter
 public class UrlDTO {
-    String url;
-    int requestCount = 0;
 
-    UrlDTO(String url){
-        this.url = url;
+
+    String orginUrl;
+    String shortenUrl;
+
+
+    int requestCount = 1;
+
+    public UrlDTO(String origin, String shorten){
+        this.orginUrl = origin+"";
+        this.shortenUrl = shorten;
     }
 
 }

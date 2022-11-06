@@ -7,8 +7,7 @@ public class DecodeUrl {
     public String urlToIndex(String originUrl, Base62 base62){
 
         byte[] decoded = base62.decode(originUrl.getBytes());
-        String indexDecoded =decoded+"";
-
+        String indexDecoded = new String(decoded);
         return indexDecoded;
     }
 }
