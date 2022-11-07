@@ -54,3 +54,9 @@
 ![image](https://user-images.githubusercontent.com/41093183/200281832-5f6d4005-4d28-42c9-b217-fb0a293cb85c.png)
 
 
+## 구현 시 이슈
+* 저장소로 List를 사용 시 ArrayList\<String\> list로 사용
+  - String 타입에서 urlDto로 타입으로 변경 후 많은 코드 수정이 필요
+  - 제네릭을 이용하여 ArrayList\<T\> list 형태로 사용하여야 했음
+
+* 추후 List에서 DB를 이용 시 많은 코드가 변경 될것으로 보여 IStorage\<UrlDTO\> listStorage = new ListStorage\<\>()와 같은 형식으로 인터페이스를 사용
