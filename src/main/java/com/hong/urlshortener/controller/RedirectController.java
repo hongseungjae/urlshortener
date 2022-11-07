@@ -4,6 +4,7 @@ import com.hong.urlshortener.dto.UrlDTO;
 import com.hong.urlshortener.service.DecodeUrl;
 import com.hong.urlshortener.service.IndexUrl;
 import com.hong.urlshortener.service.ParseUrl;
+import org.springframework.http.CacheControl;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,6 +44,8 @@ public class RedirectController {
 
                 HttpHeaders headers = new HttpHeaders();
                 headers.setLocation(URI.create(userUrl));
+                CacheControl cacheControl = CacheControl.noStore();
+                headers.setCacheControl(cacheControl);
                 return new ResponseEntity<>(headers, HttpStatus.MOVED_PERMANENTLY); // redirect 응답
             }
         }
