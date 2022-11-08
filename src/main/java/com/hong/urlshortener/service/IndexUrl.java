@@ -29,7 +29,8 @@ public class IndexUrl {
 
     }
 
-    public boolean indexRangeCheck(int index, IStorage storage) {
+    public boolean indexRangeCheck(String indexDecoded, IStorage storage) {
+        int index = Integer.parseInt(indexDecoded);
         if ( 0 <= index && index < storage.size()) {
             return true;
         }else{
