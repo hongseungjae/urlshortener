@@ -59,4 +59,4 @@
   - String 타입에서 urlDto로 타입으로 변경 후 많은 코드 수정이 필요
   - 제네릭을 이용하여 ArrayList\<T\> list 형태로 사용하여야 했음
 
-* 추후 List에서 DB를 이용 시 많은 코드가 변경 될것으로 보여 IStorage\<UrlDTO\> listStorage = new ListStorage\<\>()와 같은 형식으로 인터페이스를 사용함
+* 추후 List에서 DB를 이용 시 많은 코드가 변경 될것으로 보여 IStorage\<UrlDTO\> listStorage = new ListStorage\<\>()와 같은 형식으로 인터페이스를 사용함  
