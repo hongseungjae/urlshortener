@@ -2,7 +2,6 @@ package com.hong.urlshortener.service;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.servlet.http.HttpServletRequest;
 
 @Setter @Getter

@@ -2,9 +2,7 @@ package com.hong.urlshortener.service;
 
 import com.hong.urlshortener.repositories.IStorage;
 import com.hong.urlshortener.utill.Base62;
-
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 
 
 public class EncodeUrl {
